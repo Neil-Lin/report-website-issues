@@ -1,0 +1,185 @@
+@import "reset";
+
+/**
+/////////////////////////////////////////////////////////////
+*/
+
+:root {
+  /* Colors */
+  --color-primary: 69, 130, 39;
+  --color-white: 255, 255, 255;
+  --color-black: 0, 0, 0;
+  --color-gray: 187, 187, 187;
+  --color-focus: 255, 183, 0;
+
+  --color-warning: 163, 106, 0;
+  --color-danger: 236, 3, 3;
+
+  /* Font */
+  --font-size-base: 1rem;
+  --font-family: system-ui, Helvetica, Arial, sans-serif; 
+
+  /* Border */
+  --border-color: var(--color-gray);
+  --border-radius-min:  0.25rem;
+
+  /* Box Shadow */
+  --box-shadow: 0 0.25rem 0.875rem rgba(var(--color-black));
+}
+
+* {
+  line-height: 1.875;
+  letter-spacing: 0.14rem;
+  word-spacing: 0.16rem;
+  accent-color: rgb(var(--color-primary));
+}
+
+html,
+body {
+  scroll-padding-top: 4rem;
+  font-size: var(--font-size-base, 1rem);
+  font-family: var(--font-family);
+  scroll-behavior: smooth;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-min);
+  border: 1px solid rgb(var(--border-color));
+  font-size: 1rem;
+  &:hover {
+    opacity: 0.7;
+  }
+  &:active {
+    opacity: 1;
+  }
+  &:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgb(var(--color-focus));
+  }
+  &~.btn {
+    margin: 0 1rem;
+  }
+  &.btn-primary {
+    color: rgb(var(--color-white));
+    background-color: rgb(var(--color-primary));
+    border-color: rgb(var(--color-primary));
+  }
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  &:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgb(var(--color-focus));
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  & label[for~="checkbox-"] {
+    display: block;
+  }
+  &:has([value="__other_option__"]) {
+    flex-wrap: wrap;
+    & .checkbox-others {
+      width: 100%;
+      font-size: 1rem;
+    }
+  }
+  &:has(label[for="email"]) {
+    flex-direction: column;
+    align-items: baseline;
+    & input[type="email"] {
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+  }
+  &:has(.current-path, .user-agent) {
+    display: none;
+  }
+  & input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+input[type="email"],
+textarea {
+  border-radius: var(--border-radius-min);
+  border: 1px solid rgb(var(--border-color));
+  padding: 0.5rem 1rem;
+  &:focus-visible {
+    box-shadow: 0 0 0 0.25rem rgb(var(--color-focus));
+  }
+}
+
+.hidden-iframe {
+  display: none;
+}
+
+.checkbox-others {
+  display: none;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important; /* Fix for https://github.com/twbs/bootstrap/issues/25686 */
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+hr {
+  margin: 1.5rem 0;
+  color: rgb(var(--border-color));
+}
+
+.wrapper {
+  min-width: 375px;
+  max-width: 60ch;
+  margin: 0 auto;
+  padding: 1rem;
+  container-name: sidebar;
+  container-type: inline-size;
+}
+
+.message {
+  margin-bottom: 1rem;
+}
+
+.message--error {
+  color: rgb(var(--color-danger))
+}
+
+.message--success {
+  color: rgb(var(--color-primary))
+}
+
+.btn[class*="send-"] {
+  @container (width <= 768px) {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+  }
+}

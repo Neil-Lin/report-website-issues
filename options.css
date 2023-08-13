@@ -1,0 +1,12 @@
+@import "reset";
+
+p {
+  margin-bottom: 1rem;
+}
+
+.wrapper {
+  min-width: 375px;
+  max-width: 60ch;
+  margin: 0 auto;
+  padding: 1rem;
+}
